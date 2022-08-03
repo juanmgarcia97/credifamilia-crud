@@ -1,0 +1,83 @@
+<div class="form-container">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <h2>Add new client</h2>
+    <!-- <div class="form-input"> -->
+    <div class="form-input">
+      <mat-form-field appearance="fill">
+        <mat-label for="documentNumber">Document number</mat-label>
+        <input id="documentNumber" type="text" formControlName="documentNumber" matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="form-input">
+      <mat-form-field appearance="fill">
+        <mat-label for="documentType">Document type</mat-label>
+        <input id="documentType" type="text" formControlName="documentType" matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="form-input">
+      <mat-form-field appearance="fill">
+        <mat-label for="firstName">First name</mat-label>
+        <input id="firstName" type="text" formControlName="firstname" matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="form-input">
+      <mat-form-field appearance="fill">
+        <mat-label for="lastName">Last name</mat-label>
+        <input id="lastName" type="text" formControlName="lastname" matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="form-input">
+      <mat-form-field appearance="fill">
+        <mat-label for="birthday">Birthday</mat-label>
+        <input id="birthday" type="date" formControlName="birthday" matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="form-input">
+      <mat-form-field appearance="fill">
+        <mat-label>City</mat-label>
+        <input type="text" matInput formControlName="city" required [matAutocomplete]="autoGroup">
+        <mat-autocomplete #autoGroup="matAutocomplete">
+          <mat-optgroup *ngFor="let group of citiesGroupOption | async" [label]="group.departamento">
+            <mat-option *ngFor="let name of group.ciudades" [value]="name">
+              {{name}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <div class="form-input">
+      <mat-form-field appearance="fill">
+        <mat-label for="email">Email</mat-label>
+        <input id="email" formControlName="email" type="text" matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="form-input">
+      <mat-form-field appearance="fill">
+        <mat-label for="phoneNumber">Phone number</mat-label>
+        <input id="phoneNumber" formControlName="phoneNumber" type="text" matInput>
+      </mat-form-field>
+    </div>
+
+    <div class="form-input">
+      <mat-form-field appearance="fill">
+        <mat-label>Occupation</mat-label>
+        <input type="text" matInput formControlName="occupation" required [matAutocomplete]="auto" [formControl]="profileForm.controls.occupation">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let occupation of occupationsGroupOption | async" [value]="occupation">
+            {{occupation}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <!-- </div> -->
+    <button type="submit">Add</button>
+  </form>
+</div>

@@ -1,0 +1,54 @@
+table {
+  width: 100%;
+  margin: 1rem 2rem;
+  justify-content: center;
+}
+
+.mat-column-documentNumber {
+  font-weight: 600;
+  padding: 24px;
+  text-align: center;
+}
+
+.mat-column-email,
+.mat-column-documentType,
+.mat-column-firstName,
+.mat-column-lastName,
+.mat-column-city,
+.mat-column-birthday,
+.mat-column-phoneNumber,
+.mat-column-occupation,
+.mat-column-viable {
+  // border-right: 1px solid currentColor;
+  padding: 24px;
+  text-align: center;
+}
+
+.viable {
+  color: green;
+}
+
+.not-viable {
+  color: red;
+}
+
+.viable, .not-viable {
+  font-size: x-large;
+}
+
+.no-items {
+  justify-self: center;
+  align-self: center;
+}
+
+.delete-button {
+  font-size: x-large;
+  text-align: center;
+  color: lightcoral;
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+  & :hover {
+    color: red;
+  }
+}
